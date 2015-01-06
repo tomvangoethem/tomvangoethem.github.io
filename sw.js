@@ -2,15 +2,17 @@
 // be aware that any global state is likely to disappear
 console.log("SW startup");
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', function(e) {
   console.log("SW installed");
+  console.log(e);
 });
 
 self.addEventListener('activate', function(event) {
   console.log("SW activated");
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function(e) {
   console.log("Caught a fetch!");
-  event.respondWith(new Response("Hello world!"));
+  console.log(e);
+  e.respondWith(new Response("Hello world!"));
 });
